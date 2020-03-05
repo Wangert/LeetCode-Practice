@@ -8,8 +8,8 @@ import "fmt"
 
 func main() {
 
-	s := "babad"
-	//s := "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"
+	//s := "babad"
+	s := "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"
 	fmt.Println(longestPalindrome(s))
 }
 
@@ -27,7 +27,7 @@ func longestPalindrome(s string) string {
 	//记录最大长度
 	maxLen := 0
 	//用于记录最长回文子串的左右位置
-	var right, left int
+	var left, right int
 	//游标
 	i := 0
 
@@ -39,8 +39,8 @@ func longestPalindrome(s string) string {
 		}
 
 		//获得奇情况的左右位置和长度
-		oddR, oddL, oddLen := longestByExpandAroundCenter(runeStr, i-1, i+1)
-		evenR, evenL, evenLen := longestByExpandAroundCenter(runeStr, i, i+1)
+		oddL, oddR, oddLen := longestByExpandAroundCenter(runeStr, i-1, i+1)
+		evenL, evenR, evenLen := longestByExpandAroundCenter(runeStr, i, i+1)
 
 		//判断当前最长
 		if oddLen >= evenLen && oddLen > maxLen {
@@ -61,31 +61,31 @@ func longestPalindrome(s string) string {
 
 	}
 
-	return string(runeStr[right+1:left])
+	return string(runeStr[left+1:right])
 
 }
 
 //获取从中心扩散的最长回文子串
-func longestByExpandAroundCenter(runeStr []rune, right, left int) (int, int, int) {
+func longestByExpandAroundCenter(runeStr []rune, left, right int) (int, int, int) {
 	//记录当前左右位置
-	r, l := right, left
+	l, r := left, right
 
 	for {
 		//判断是否已经到边界
-		if r < 0 || l >= len(runeStr) {
+		if l < 0 || r >= len(runeStr) {
 			break
 		}
 
 		//如果相等，向外扩散
-		if runeStr[r] == runeStr[l] {
-			r--
-			l++
+		if runeStr[l] == runeStr[r] {
+			l--
+			r++
 		} else {
 			break
 		}
 
 	}
 
-	return r, l, l - r - 1
+	return l, r, r - l - 1
 
 }
