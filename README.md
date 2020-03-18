@@ -20,3 +20,4 @@ Use go language to implement LeetCode problem.
 17. Letter Combination of a Phone Number
 18. Four Sum
 19. Remove Nth Node From End of List
+20. Valid Parentheses
