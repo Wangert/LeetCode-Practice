@@ -26,3 +26,4 @@ Use go language to implement LeetCode problem.
 23. Merge k Sorted Lists
 24. Swap Nodes in Pairs
 25. Reverse Nodes in k-Group
+26. Remove Duplicates from Sorted Array
