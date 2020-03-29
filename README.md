@@ -31,3 +31,4 @@ Use go language to implement LeetCode problem.
 28. Implement strStr()
 29. Divide Two Integers
 30. Substring with Concatenation of All Words
+31. Next Permutation
