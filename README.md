@@ -38,3 +38,4 @@ Use go language to implement LeetCode problem.
 35. Search Insert Position
 36. Valid Sudoku
 37. Sudoku Solver
+38. Count and Say
