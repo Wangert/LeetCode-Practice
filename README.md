@@ -43,3 +43,4 @@ Use go language to implement LeetCode problem.
 40. Combination Sum II
 41. First Missing Positive
 42. Trapping Rain Water
+43. Multiply Strings
